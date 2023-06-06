@@ -1,11 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import Card from '../components/Card.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Greeting from '../components/Greeting.jsx';
+const pageTitle= 'Home Page'
 ---
 
-<Layout title="Welcome to Astro.">
+<!-- <Layout title={pageTitle}>
 	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
+		<Header />
+		<h1>Welcome to <span class="text-gradient">{pageTitle}</span></h1>
 		<p class="instructions">
 			To get started, open the directory <code>src/pages</code> in your project.<br />
 			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
@@ -32,8 +38,21 @@ import Card from '../components/Card.astro';
 				body="Come say hi to our amazing Discord community. ❤️"
 			/>
 		</ul>
+
+		<Footer />
+		<script>
+			document.querySelector('.hamburger').addEventListener('click', () => {
+				document.querySelector('.nav-links').classList.toggle('expanded');
+			});
+		</script>
 	</main>
-</Layout>
+</Layout> -->
+
+<BaseLayout pageTitle={pageTitle}>
+  <h2>My awesome blog subtitle</h2>
+	<Greeting messages={["Hi", "Hello", "Howdy", "Hey there"]} hydrated={false}/>
+	<Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} hydrated={true} />
+</BaseLayout>
 
 <style>
 	main {
