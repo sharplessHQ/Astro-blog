@@ -4,71 +4,79 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const pageTitle = "About Me";
+const pageTitle = 'About Me';
 
 const identity = {
-  firstName: "Sarah",
-  country: "Canada",
-  occupation: "Technical Writer",
-  hobbies: ["photography", "birdwatching", "baseball"],
+	firstName: 'Sarah',
+	country: 'Canada',
+	occupation: 'Technical Writer',
+	hobbies: ['photography', 'birdwatching', 'baseball'],
 };
 
-const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Astro', 'Writing Docs'];
 
 const happy = true;
 const finished = true;
 const goal = 3;
-const skillColor = 'palevioletred'
-const fontWeight = "bold";
-const textCase = "uppercase";
-
+const skillColor = 'palevioletred';
+const fontWeight = 'bold';
+const textCase = 'uppercase';
 ---
 
 <Layout title={pageTitle}>
 	<body>
-    <Header />
-    
-    <h1>{pageTitle}</h1>
-    <h2>... and my new Astro site!</h2>
-  
-    <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
-  
-    <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
+		<Header />
 
-    <p>Here are a few facts about me:</p>
-    <ul>
-      <li>My name is {identity.firstName}.</li>
-      <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
-      {identity.hobbies.length >= 2 && 
-        <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
-      } 
-    </ul>
-    <p>My skills are:</p>
-    <ul>
-      {skills.map((skill) => <li class="skill">{skill}</li>)}
-    </ul>
+		<h1>{pageTitle}</h1>
+		<h2>... and my new Astro site!</h2>
 
-    {happy && <p>I am happy to be learning Astro!</p>}
+		<p>
+			I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one
+			I built myself!
+		</p>
 
-    {finished && <p>I finished this tutorial!</p>}
+		<p>
+			This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!
+		</p>
 
-    {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
+		<p>Here are a few facts about me:</p>
+		<ul>
+			<li>My name is {identity.firstName}.</li>
+			<li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+			{
+				identity.hobbies.length >= 2 && (
+					<li>
+						Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}
+					</li>
+				)
+			}
+		</ul>
+		<p>My skills are:</p>
+		<ul>
+			{skills.map((skill) => <li class="skill">{skill}</li>)}
+		</ul>
 
-    <Footer />
-    <script>
-			import "../scripts/menu.js";
+		{happy && <p>I am happy to be learning Astro!</p>}
+
+		{finished && <p>I finished this tutorial!</p>}
+
+		{goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
+
+		<Footer />
+		<script>
+			import '../scripts/menu.js';
 		</script>
-  </body>
+	</body>
 </Layout>
 
-<style define:vars={{skillColor, fontWeight, textCase}}>
-  h1 {
-    color: teal;
-    font-size: 4rem;
-  }
-  .skill {
-   color: var(--skillColor);
-   font-weight: var(--fontWeight);
-   text-transform: var(--textCase);
- }
+<style define:vars={{ skillColor, fontWeight, textCase }}>
+	h1 {
+		color: teal;
+		font-size: 4rem;
+	}
+	.skill {
+		color: var(--skillColor);
+		font-weight: var(--fontWeight);
+		text-transform: var(--textCase);
+	}
 </style>
