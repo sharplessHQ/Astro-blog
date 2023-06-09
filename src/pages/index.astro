@@ -5,7 +5,7 @@ import Card from '../components/Card.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Greeting from '../components/Greeting.jsx';
-const pageTitle= 'Home Page'
+const pageTitle = 'Home Page';
 ---
 
 <!-- <Layout title={pageTitle}>
@@ -47,11 +47,17 @@ const pageTitle= 'Home Page'
 		</script>
 	</main>
 </Layout> -->
-
 <BaseLayout pageTitle={pageTitle}>
-  <h2>My awesome blog subtitle</h2>
-	<Greeting messages={["Hi", "Hello", "Howdy", "Hey there"]} hydrated={false}/>
-	<Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} hydrated={true} />
+	<h2>My awesome blog subtitle</h2>
+	<Greeting
+		messages={['Hi', 'Hello', 'Howdy', 'Hey there']}
+		hydrated={false}
+	/>
+	<Greeting
+		client:load
+		messages={['Hej', 'Hallo', 'Hola', 'Habari']}
+		hydrated={true}
+	/>
 </BaseLayout>
 
 <style>
